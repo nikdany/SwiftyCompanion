@@ -41,20 +41,12 @@ class ViewController: UIViewController {
                 guard error == nil else { return }
                 
                 do {
-                    let intraUser = try JSONDecoder().decode(User.self, from: data)
-//                    print(intraUser)
-                    for project in intraUser.projectsUsers {
-//                        let name = project?.project, let mark = project?.finalMark, let status = project?.status
-                        print("\(project?.project) \(project?.finalMark) \(project?.status)")
-                    }
-                    for user in intraUser.cursusUsers {
-                        for skill in user!.skills {
-                            guard let name = skill?.name, let level = skill?.level else {return}
-                            print("\(name)  \(level)")
-                        }
-                    }
+                    let intraUser = try JSONDecoder().decode(UserIntra.self, from: data)
+                    print(intraUser.skills)
+        
+
                 } catch let error {
-                    print("tut", error)
+                    print("JSON Decoding Error GET", error)
                 }
             }.resume()
         }
@@ -76,8 +68,24 @@ class ViewController: UIViewController {
                 print(intraToken)
                 API.token = intraToken.access_token
             } catch let error {
-                print("tut", error)
+                print("JSON Decoding Error POST", error)
             }
         }.resume()
     }
 }
+
+
+
+//                    for user in intraUser.cursusUsers {
+//                        for skill in user.skills {
+//                            print("\(name)  \(level)")
+//                        }
+//                    }
+
+
+// for projects in intraUser.projectsAll {
+////                        print(projects.cursusId, projects.project.name)
+//                        if projects.cursusId.contains(1) && !projects.project.slug.hasPrefix("piscine") && !projects.project.slug.hasPrefix("rushes"){
+//                            print(projects.cursusId, projects.project.name, projects.project.slug, projects.finalMark ?? 0, projects.status)
+//                        }
+//                    }

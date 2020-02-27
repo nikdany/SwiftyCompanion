@@ -31,14 +31,58 @@ struct User: Decodable {
     var firstName: String
     var lastName: String
     var displayName: String
-    var imageURL: String
+    var imageURL: URL
     var correctionPoint: Int
     var poolMonth: String
     var poolYear: String
     var wallet: Int
     var login: String
-    var projectsUsers: [Projects?]
-    var cursusUsers: [CursusInfo?]
+    var projectsAll: [Projects]
+    var cursusAll: [CursusInfo]
+    
+    struct Projects: Decodable {
+//        var id: Int
+        var finalMark: Int?
+        var status: String
+        var cursusId: [Int]
+        var project: ProjectInfo
+        
+        enum CodingKeys : String, CodingKey {
+//            case id
+            case finalMark = "final_mark"
+            case status
+            case cursusId = "cursus_ids"
+            case project = "project"
+        }
+    }
+    
+        struct ProjectInfo: Decodable {
+            var name: String
+            var slug: String
+        }
+        
+    struct CursusInfo: Decodable {
+        var beginAt: String
+        var level: Float
+        var cursus: Cursus
+        var skills: [SkillsInfo]
+        
+        enum CodingKeys : String, CodingKey {
+            case beginAt = "begin_at"
+            case level
+            case skills = "skills"
+            case cursus
+        }
+    }
+        struct Cursus: Decodable{
+            var name: String
+            var slug: String
+        }
+
+        struct SkillsInfo: Decodable {
+            var name: String
+            var level: Double
+        }
     
     enum CodingKeys : String, CodingKey {
       case id
@@ -52,43 +96,44 @@ struct User: Decodable {
       case poolYear = "pool_year"
       case wallet
       case login
-      case projectsUsers = "projects_users"
-      case cursusUsers = "cursus_users"
+      case projectsAll = "projects_users"
+      case cursusAll = "cursus_users"
     }
 }
 
-struct Projects: Decodable {
-    var finalMark: Int?
-    var status: String
-    var project: ProjectInfo?
-    
-    enum CodingKeys : String, CodingKey {
-      case finalMark = "final_mark"
-      case status
-      case project = "project"
-      
-    }
-}
-
-struct ProjectInfo: Decodable {
-    var name: String
-    var slug: String
-}
-
-struct CursusInfo: Decodable {
-    var beginAt: String
-    var level: Float
-    var skills: [SkillsInfo?]
-    
-    enum CodingKeys : String, CodingKey {
-      case beginAt = "begin_at"
-      case level
-      case skills = "skills"
-      
-    }
-}
-
-struct SkillsInfo: Decodable {
-    var name: String
-    var level: Double
-}
+//
+//struct Projects: Decodable {
+//    var finalMark: Int?
+//    var status: String
+//    var project: ProjectInfo?
+//
+//    enum CodingKeys : String, CodingKey {
+//      case finalMark = "final_mark"
+//      case status
+//      case project = "project"
+//
+//    }
+//}
+//
+//struct ProjectInfo: Decodable {
+//    var name: String
+//    var slug: String
+//}
+//
+//struct CursusInfo: Decodable {
+//    var beginAt: String
+//    var level: Float
+//    var skills: [SkillsInfo?]
+//
+//    enum CodingKeys : String, CodingKey {
+//      case beginAt = "begin_at"
+//      case level
+//      case skills = "skills"
+//
+//    }
+//}
+//
+//struct SkillsInfo: Decodable {
+//    var name: String
+//    var level: Double
+//}
