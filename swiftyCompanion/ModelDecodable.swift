@@ -24,16 +24,16 @@ struct UserIntra {
     var beginAt: String
     var level: Float
     
-    var skills: [Skills]
+    var skills: [Skills] = []
     
-//    var projects42: [Projects]
+    var projects42: [Projects] = []
 
     struct Projects: Decodable{
         var finalMark: Int?
         var status: String
-        var cursusId: [Int]
-        var name: String
-        var slug: String
+        var cursusId: [String]
+//        var name: String
+//        var slug: String
     }
     
     struct Skills: Decodable {
@@ -54,19 +54,19 @@ struct UserIntra {
         case poolYear = "pool_year"
         case wallet
         case login
-//        case projectsAll = "projects_users"
+        case projectsAll = "projects_users"
         case cursusAll = "cursus_users"
         
-//        enum ProjectKeys : String, CodingKey {
-//            case finalMark = "final_mark"
-//            case status
-//            case cursusId = "cursus_ids"
-//
+        enum ProjectKeys : String, CodingKey {
+            case finalMark = "final_mark"
+            case status
+            case cursusId = "cursus_ids"
+
 //            enum ProjectsInfoKeys: String, CodingKey {
 //                case name
 //                case slug
 //            }
-//        }
+        }
         
         enum CursusKeys : String, CodingKey {
                 case beginAt = "begin_at"
@@ -103,27 +103,29 @@ extension UserIntra: Decodable {
         poolYear = try values.decode(String.self, forKey: .poolYear)
         wallet = try values.decode(Int.self, forKey: .wallet)
         login = try values.decode(String.self, forKey: .login)
-        
-        
 
         var cursusContainer = try values.nestedUnkeyedContainer(forKey: .cursusAll)
         let cursusEntry = try cursusContainer.nestedContainer(keyedBy: CodingKeys.CursusKeys.self)
-        
+
         level = try cursusEntry.decode(Float.self, forKey: .level)
         beginAt = try cursusEntry.decode(String.self, forKey: .beginAt)
-        
+
         var skillsContainer = try cursusEntry.nestedUnkeyedContainer(forKey: .skills)
-        var decodeSkills: [Skills] = []
-    
+
         while !skillsContainer.isAtEnd{
             let skill = try skillsContainer.decode(Skills.self)
-            decodeSkills.append(skill)
+            skills.append(skill)
         }
-        
-        skills = decodeSkills
-        
 
-        
+        var projectsContainer = try values.nestedUnkeyedContainer(forKey: .projectsAll)
+        while !projectsContainer.isAtEnd {
+//            let projectsEntry = try projectsContainer.nestedContainer(keyedBy: CodingKeys.ProjectKeys.ProjectsInfoKeys.self)
+            var project = try projectsContainer.decode(Projects.self)
+//            project.name = try projectsEntry.decode(String.self, forKey: .name)
+//            project.slug = try projectsEntry.decode(String.self, forKey: .slug)
+            projects42.append(project)
+        }
+
 
     }
 }
