@@ -1,29 +1,13 @@
 //
-//  Model.swift
+//  UserDecodable.swift
 //  swiftyCompanion
 //
-//  Created by Mykyta DANYLCHENKO on 2/20/20.
+//  Created by Mykyta DANYLCHENKO on 2/28/20.
 //  Copyright © 2020 Mykyta DANYLCHENKO. All rights reserved.
 //
 
 import Foundation
 
-struct IntraToken: Decodable {
-    var access_token: String?
-}
-
-struct Intra {
-    let intraURL = "https://api.intra.42.fr"
-    let getToken = "/oauth/token"
-    let getUser = "/v2/users/"
-    let getCoalition = "/v2/coalitions_users/:id"
-    let UID = "d467eabb1e8c1abee90d8b332f4bff3756ad888fa4015e56aa0b21eb2fca138e"
-    let secretKey = "10244b3f3da2369fed64efecb59349808db19bac6eb796c529c2719b4e2fdcc1"
-    let callback = "com.swiftyCompanion://mdanylch"
-    var token: String?
-}
-
-var API = Intra()
 
 struct User: Decodable {
     var id: Int
@@ -37,8 +21,7 @@ struct User: Decodable {
     var poolYear: String
     var wallet: Int
     var login: String
-//    var projects42: [Projects]
-//    var skills42: [SkillsInfo]
+    var location: String?
     var projectsAll: [Projects]
     var cursusAll: [CursusInfo]
 
@@ -47,16 +30,12 @@ struct User: Decodable {
         var status: String
         var cursusId: [Int]
         var project: ProjectInfo
-//        var name: String
-//        var slug: String
         
         enum CodingKeys : String, CodingKey {
             case finalMark = "final_mark"
             case status
             case cursusId = "cursus_ids"
             case project = "project"
-//            case name
-//            case slug
         }
     }
     
@@ -99,10 +78,9 @@ struct User: Decodable {
         case poolMonth = "pool_month"
         case poolYear = "pool_year"
         case wallet
+        case location
         case login
 
-//        case projects42
-//        case skills42
         case projectsAll = "projects_users"
         case cursusAll = "cursus_users"
     }
