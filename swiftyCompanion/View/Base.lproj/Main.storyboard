@@ -205,35 +205,10 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ulv-U3-N8D">
                                                 <rect key="frame" x="0.0" y="31" width="414" height="417"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xPf-RP-Zeb">
-                                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xPf-RP-Zeb" id="k6T-y9-xwL">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="WF2-ul-hNX">
-                                                                    <rect key="frame" x="20" y="11" width="92" height="20.5"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQU-Hq-KPp">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bhd-Ny-KCo">
-                                                                            <rect key="frame" x="50" y="0.0" width="42" height="20.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                </stackView>
-                                                            </subviews>
-                                                        </tableViewCellContentView>
-                                                    </tableViewCell>
-                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="Xdj-e7-hJl" id="Gwd-op-Mqf"/>
+                                                    <outlet property="delegate" destination="Xdj-e7-hJl" id="qSs-6y-009"/>
+                                                </connections>
                                             </tableView>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ADb-Qg-t4H">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
@@ -244,6 +219,9 @@
                                                     <segment title="Skills"/>
                                                 </segments>
                                                 <color key="selectedSegmentTintColor" red="0.40186780690000001" green="0.67868155240000005" blue="0.35678139330000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <connections>
+                                                    <action selector="chooseSegment:" destination="Xdj-e7-hJl" eventType="valueChanged" id="eJN-mK-jSq"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -281,6 +259,7 @@
                         <outlet property="levelView" destination="JNy-Vf-MhU" id="b4V-cb-948"/>
                         <outlet property="shortInfo" destination="ji0-0D-Kcq" id="KSN-6d-vS8"/>
                         <outlet property="tabBar" destination="ADb-Qg-t4H" id="O0L-wO-F2b"/>
+                        <outlet property="tableViewInfo" destination="Ulv-U3-N8D" id="3ZM-rS-wfD"/>
                         <outlet property="topView" destination="Hgl-xZ-3Wd" id="8Ft-oA-dxO"/>
                         <segue destination="5ya-KT-awH" kind="unwind" identifier="backSegue" unwindAction="unwindToMainScreenWithSegue:" id="lwh-Ok-5lZ"/>
                     </connections>

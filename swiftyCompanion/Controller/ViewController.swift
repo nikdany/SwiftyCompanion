@@ -11,7 +11,6 @@ import AuthenticationServices
 
 class ViewController: UIViewController {
 
-//    var token : String = ""
     var userSent : User?
     
     @IBOutlet weak var userName: UITextField!
@@ -63,35 +62,3 @@ class ViewController: UIViewController {
         
 }
 
-//
-//@IBAction func intraLogin() {
-//    guard let userName = userName.text, !userName.isEmpty, !token.isEmpty else { return }
-//    toggleActivityIndicator(on: true)
-//    NetworkService.shared.getData(userName: userName, token: token) { (responce) in
-//
-//        self.toggleActivityIndicator(on: false)
-//        self.userSent = responce
-//        self.performSegue(withIdentifier: "ShowSecond", sender: nil)
-//
-//    }
-//
-//}
-//
-//func toggleActivityIndicator(on: Bool) {
-//  if on {
-//    activiryIndicator.startAnimating()
-//  } else {
-//    activiryIndicator.stopAnimating()
-//  }
-//}
-//
-//override func viewDidLoad() {
-//    getUserButton.layer.cornerRadius = getUserButton.frame.height / 2
-//    super.viewDidLoad()
-//
-//    userName.text = "mdanylch"
-//    NetworkService.shared.postRequestToken { (token) in
-//        self.token = token
-//    }
-//
-//}

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C54286A72409BB7B00D5B54F /* UserDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54286A62409BB7B00D5B54F /* UserDecodable.swift */; };
+		C57B676224153DD400DB4516 /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57B676024153DD400DB4516 /* SkillCell.swift */; };
+		C57B676324153DD400DB4516 /* SkillCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57B676124153DD400DB4516 /* SkillCell.xib */; };
+		C57B676824153E4E00DB4516 /* OverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57B676624153E4E00DB4516 /* OverviewCell.swift */; };
+		C57B676924153E4E00DB4516 /* OverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57B676724153E4E00DB4516 /* OverviewCell.xib */; };
+		C57B676C24153E6A00DB4516 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C57B676A24153E6A00DB4516 /* ProjectCell.swift */; };
+		C57B676D24153E6A00DB4516 /* ProjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57B676B24153E6A00DB4516 /* ProjectCell.xib */; };
 		C5B69366240945F700FBA84B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B69365240945F700FBA84B /* NetworkService.swift */; };
 		C5B6936A24094FEF00FBA84B /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B6936924094FEF00FBA84B /* UserPageViewController.swift */; };
 		C5FA499623FD45D700B32C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5FA499523FD45D700B32C84 /* AppDelegate.swift */; };
@@ -20,6 +26,12 @@
 
 /* Begin PBXFileReference section */
 		C54286A62409BB7B00D5B54F /* UserDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDecodable.swift; sourceTree = "<group>"; };
+		C57B676024153DD400DB4516 /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SkillCell.swift; path = Cells/SkillCell.swift; sourceTree = "<group>"; };
+		C57B676124153DD400DB4516 /* SkillCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SkillCell.xib; path = Cells/SkillCell.xib; sourceTree = "<group>"; };
+		C57B676624153E4E00DB4516 /* OverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OverviewCell.swift; path = Cells/OverviewCell.swift; sourceTree = "<group>"; };
+		C57B676724153E4E00DB4516 /* OverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OverviewCell.xib; path = Cells/OverviewCell.xib; sourceTree = "<group>"; };
+		C57B676A24153E6A00DB4516 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectCell.swift; path = Cells/ProjectCell.swift; sourceTree = "<group>"; };
+		C57B676B24153E6A00DB4516 /* ProjectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProjectCell.xib; path = Cells/ProjectCell.xib; sourceTree = "<group>"; };
 		C5B69365240945F700FBA84B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C5B6936924094FEF00FBA84B /* UserPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPageViewController.swift; sourceTree = "<group>"; };
 		C5FA499223FD45D700B32C84 /* swiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +78,12 @@
 			isa = PBXGroup;
 			children = (
 				C5FA499B23FD45D700B32C84 /* Main.storyboard */,
+				C57B676024153DD400DB4516 /* SkillCell.swift */,
+				C57B676124153DD400DB4516 /* SkillCell.xib */,
+				C57B676A24153E6A00DB4516 /* ProjectCell.swift */,
+				C57B676B24153E6A00DB4516 /* ProjectCell.xib */,
+				C57B676624153E4E00DB4516 /* OverviewCell.swift */,
+				C57B676724153E4E00DB4516 /* OverviewCell.xib */,
 				C5FA49A023FD45D900B32C84 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -174,9 +192,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C57B676924153E4E00DB4516 /* OverviewCell.xib in Resources */,
 				C5FA49A223FD45D900B32C84 /* LaunchScreen.storyboard in Resources */,
 				C5FA499F23FD45D900B32C84 /* Assets.xcassets in Resources */,
+				C57B676324153DD400DB4516 /* SkillCell.xib in Resources */,
 				C5FA499D23FD45D700B32C84 /* Main.storyboard in Resources */,
+				C57B676D24153E6A00DB4516 /* ProjectCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,8 +209,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5B6936A24094FEF00FBA84B /* UserPageViewController.swift in Sources */,
+				C57B676224153DD400DB4516 /* SkillCell.swift in Sources */,
 				C5FA499A23FD45D700B32C84 /* ViewController.swift in Sources */,
 				C5FA499623FD45D700B32C84 /* AppDelegate.swift in Sources */,
+				C57B676C24153E6A00DB4516 /* ProjectCell.swift in Sources */,
+				C57B676824153E4E00DB4516 /* OverviewCell.swift in Sources */,
 				C5FA499823FD45D700B32C84 /* SceneDelegate.swift in Sources */,
 				C5B69366240945F700FBA84B /* NetworkService.swift in Sources */,
 				C54286A72409BB7B00D5B54F /* UserDecodable.swift in Sources */,
