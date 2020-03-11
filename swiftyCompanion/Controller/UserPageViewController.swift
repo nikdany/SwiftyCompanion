@@ -96,14 +96,15 @@ class UserPageViewController: UIViewController {
 //        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
         gradient.frame = CGRect(x: 0.0, y: 0.0, width: topView.frame.size.width, height: topView.frame.size.height)
         topView.layer.insertSublayer(gradient, at: 0)
+//        tableViewInfo.backgroundColor = #colorLiteral(red: 0.3803608716, green: 0.3804116249, blue: 0.3846440315, alpha: 1)
     }
     
     func settingUpTableData(user: User){
         overviewData = [RowData(fieldName: "Full name", value: user.displayName),
         RowData(fieldName: "login", value: user.login),
         RowData(fieldName: "email", value: user.email),
-        RowData(fieldName: "Pool month", value: user.poolMonth),
-        RowData(fieldName: "Pool Year", value: user.poolYear),
+        RowData(fieldName: "Pool month", value: user.poolMonth ?? "unknown"),
+        RowData(fieldName: "Pool Year", value: user.poolYear ?? "unknown"),
         RowData(fieldName: "Evaluation points", value: "\(user.correctionPoint)"),
         RowData(fieldName: "Wallet", value: "\(user.wallet) ₳")]
         
@@ -124,13 +125,15 @@ class UserPageViewController: UIViewController {
         switch tabBar.selectedSegmentIndex {
         case 0:
             cellName = "OverviewCell"
+           
             rowsToDisplay = overviewData
         case 1:
             cellName = "OverviewCell"
-            rowsToDisplay = projectData
+            rowsToDisplay = projectData.sorted(by: {$0.value > $1.value})
         case 2:
             cellName = "OverviewCell"
-            rowsToDisplay = skillData
+            rowsToDisplay = skillData.sorted(by: {$0.value > $1.value})
+            
         default:
             print("Ooooops")
         }
@@ -146,11 +149,14 @@ extension UserPageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowsToDisplay.count
     }
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        rowsToDisplay.sort(by: {$0.value < $1.value})
         let cell = Bundle.main.loadNibNamed(cellName, owner: self, options: nil)?.first as! OverviewCell
-        cell.fieldName.text = rowsToDisplay[indexPath.row].fieldName
-        cell.fieldValue.text = rowsToDisplay[indexPath.row].value
+        cell.FillMyCell(rowsToDisplay: rowsToDisplay[indexPath.row])
+        
+//        cell.fieldName.text = rowsToDisplay[indexPath.row].fieldName
+//        cell.fieldValue.text = rowsToDisplay[indexPath.row].value
         return cell
     }
 }

@@ -12,4 +12,9 @@ class OverviewCell: UITableViewCell {
     
     @IBOutlet weak var fieldName: UILabel!
     @IBOutlet weak var fieldValue: UILabel!
+    
+    func FillMyCell(rowsToDisplay: RowData){
+        fieldName.text = rowsToDisplay.fieldName
+        fieldValue.text = rowsToDisplay.value
+    }
 }

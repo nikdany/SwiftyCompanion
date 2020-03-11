@@ -10,15 +10,15 @@ import Foundation
 
 
 struct User: Decodable {
-    var id: Int
+    var id: Int?
     var email: String
     var firstName: String
     var lastName: String
     var displayName: String
     var imageURL: URL
     var correctionPoint: Int
-    var poolMonth: String
-    var poolYear: String
+    var poolMonth: String?
+    var poolYear: String?
     var wallet: Int
     var login: String
     var location: String?

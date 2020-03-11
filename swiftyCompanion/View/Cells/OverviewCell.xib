@@ -32,6 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <color key="backgroundColor" red="0.38039809465408325" green="0.38038375973701477" blue="0.3843110203742981" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                     </stackView>
                 </subviews>
                 <constraints>
