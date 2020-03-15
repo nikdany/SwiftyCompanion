@@ -42,8 +42,8 @@ class ViewController: UIViewController {
                 
                 do {
                     let intraUser = try JSONDecoder().decode(UserIntra.self, from: data)
-                    print(intraUser.skills)
-        
+                    print("\(intraUser.skills)")
+                    print("\(intraUser.projects42)")
 
                 } catch let error {
                     print("JSON Decoding Error GET", error)
