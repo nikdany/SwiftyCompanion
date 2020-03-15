@@ -104,7 +104,7 @@ struct User: Decodable {
 //
 //struct Projects: Decodable {
 //    var finalMark: Int?
-//    var status: String
+//    var status: Sdfdtring
 //    var project: ProjectInfo?
 //
 //    enum CodingKeys : String, CodingKey {

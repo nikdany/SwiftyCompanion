@@ -10,6 +10,7 @@ import Foundation
 
 struct UserIntra {
     var id: Int
+    var to: Int?
     var email: String
     var firstName: String
     var lastName: String
